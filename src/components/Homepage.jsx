@@ -9,18 +9,18 @@ import bg5 from "../assets/shop.png";
 function App() {
 
   const colors = [
-    { name: "Red", bg: "bg-red-500" },
-    { name: "Blue", bg: "bg-blue-500" },
-    { name: "Green", bg: "bg-green-500" },
-    { name: "Yellow", bg: "bg-yellow-500" },
-    { name: "Purple", bg: "bg-purple-500" },
-    { name: "Pink", bg: "bg-pink-500" },
-    { name: "Indigo", bg: "bg-indigo-500" },
-    { name: "Teal", bg: "bg-teal-500" },
-    { name: "Cyan", bg: "bg-cyan-500" },
-    { name: "Lime", bg: "bg-lime-500" },
-    { name: "Emerald", bg: "bg-emerald-500" },
-    { name: "Rose", bg: "bg-rose-500" },
+    { name: "Red", bg: "bg-red-600" },
+    { name: "Blue", bg: "bg-blue-600" },
+    { name: "Green", bg: "bg-green-600" },
+    { name: "Yellow", bg: "bg-yellow-600" },
+    { name: "Purple", bg: "bg-purple-600" },
+    { name: "Pink", bg: "bg-pink-600" },
+    { name: "Indigo", bg: "bg-indigo-600" },
+    { name: "Teal", bg: "bg-teal-600" },
+    { name: "Cyan", bg: "bg-cyan-600" },
+    { name: "Lime", bg: "bg-lime-600" },
+    { name: "Emerald", bg: "bg-emerald-600" },
+    { name: "Rose", bg: "bg-rose-600" },
   ];
 
   return (
@@ -35,8 +35,30 @@ function App() {
       {/* Section 2 */}
       <div
         className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain md:h-screen md:bg-cover"
-        style={{ backgroundImage: `url(${bg2})` }}
-      />
+        style={{ backgroundImage: `url(${bg2})` }}>
+
+          
+        <div className="text-center"> <p className="text-5xl text-white">Thoughtfully crafted, story-driven creative <br />
+          solution that <i>blend</i> design, film and <br /> strategy to build meaningful brands. </p> </div>
+
+        <div className=" text-center flex ">
+          <div><h4 className="text-4xl text-white">Overview</h4> <p className="text-2xl text-white">
+            A personal portfolio website project designed <br />
+            to present my creative identity, showcase <br />
+            selected works, and communicate my <br />
+            multidisciplinary approach through an <br />
+            immersive, story-driven digital experience.</p></div>
+
+          <div><h4 className="text-4xl text-white">Category & Duration</h4> <p className="text-2xl text-white">
+
+            This website falls under a creative portfolio category, <br />
+            designed to showcase multidisciplinary work across <br />
+            branding, packaging, photography, film, and creative <br />
+            direction through a clean, focused, and experience <br />
+            led approach, and was conceptualized and executed  <br />
+            within a duration of one day.</p></div>
+        </div>
+      </div>
 
       {/* Section 3 */}
       <div
