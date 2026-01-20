@@ -3,3 +3,7 @@
 :root {
     --mycolor: #950101
 }
+
+html {
+  scroll-behavior: smooth;
+}

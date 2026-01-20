@@ -5,23 +5,11 @@ import bg2 from "../assets/bg.png";
 import bg3 from "../assets/dex.png";
 import bg4 from "../assets/berojgar.png";
 import bg5 from "../assets/shop.png";
+import bg6 from "../assets/phone.png"
 
 function App() {
 
-  const colors = [
-    { name: "Red", bg: "bg-red-600" },
-    { name: "Blue", bg: "bg-blue-600" },
-    { name: "Green", bg: "bg-green-600" },
-    { name: "Yellow", bg: "bg-yellow-600" },
-    { name: "Purple", bg: "bg-purple-600" },
-    { name: "Pink", bg: "bg-pink-600" },
-    { name: "Indigo", bg: "bg-indigo-600" },
-    { name: "Teal", bg: "bg-teal-600" },
-    { name: "Cyan", bg: "bg-cyan-600" },
-    { name: "Lime", bg: "bg-lime-600" },
-    { name: "Emerald", bg: "bg-emerald-600" },
-    { name: "Rose", bg: "bg-rose-600" },
-  ];
+
 
   return (
     <div className="bg-black ">
@@ -34,14 +22,14 @@ function App() {
 
       {/* Section 2 */}
       <div
-        className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain md:h-screen md:bg-cover"
+        className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain bg-none md:bg-none  lg:bg-cover"
         style={{ backgroundImage: `url(${bg2})` }}>
 
           
-        <div className="text-center px-30 p-14 "> <p className="text-4xl text-white mt-15 ">Thoughtfully crafted, story-driven creative 
+        <div className="text-center px-30 p-14 "> <p className=" text-md md:text-2xl lg:text-4xl text-white mt-15 ">Thoughtfully crafted, story-driven creative 
           solution that <i>blend</i> design, film and strategy to build meaningful brands. </p> </div>
 
-        <div className=" text-center flex mt-[25vh]  ">
+        {/* <div className=" text-center flex mt-[25vh]  ">
           <div className="text-center p-14 " ><h4 className="text-3xl text-white ">Overview</h4> <p className="text-sm text-white">
             A personal portfolio website project designed 
             to present my creative identity, showcase 
@@ -49,7 +37,7 @@ function App() {
             multidisciplinary approach through an 
             immersive, story-driven digital experience.</p></div>
 
-          <div className="text-center p-14 px-30 "><h4 className="text-3xl text-white ">Category & Duration</h4> <p className="text-sm text-white">
+          <div className="text-center p-14 px-30 "><h4 className=" text-lg md:text-3xl text-white ">Category & Duration</h4> <p className="text-sm text-white">
 
             This website falls under a creative portfolio category, 
             designed to showcase multidisciplinary work across 
@@ -57,7 +45,7 @@ function App() {
             direction through a clean, focused, and experience 
             led approach, and was conceptualized and executed  
             within a duration of one day.</p></div>
-        </div>
+        </div> */}
       </div>
 
       {/* Section 3 */}
@@ -99,7 +87,7 @@ function App() {
             </div>
 
             <div>
-              <div className="flex gap-3 mb-6 flex-wrap">
+              <div className="flex gap-3 mb-6  flex-wrap">
                 {["150 pt", "64 pt", "32 pt", "20 pt"].map((s, i) => (
                   <span
                     key={i}
@@ -138,41 +126,18 @@ function App() {
       </section>
 
 
-      {/* Color Grid Section */}
-      <div className="w-full bg-black py-20">
-        <div className="max-w-[1400px] mx-auto px-[90px]">
-          <div className="grid grid-cols-12 gap-x-[24px]">
-            {colors.map((item, i) => (
-              <div
-                key={i}
-                className="relative h-[400px] bg-orange-500 overflow-hidden group"
-              >
-                {/* Hover Overlay */}
-                <div
-                  className={`
-                    absolute inset-0
-                    ${item.bg}
-                    translate-y-full
-                    group-hover:translate-y-0
-                    transition-transform duration-500 ease-out
-                    flex items-center justify-center
-                  `}
-                >
-                  <span className="text-white text-xl font-semibold tracking-wide">
-                    {item.name}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Section 5 */}
       <div
         className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain md:h-screen md:bg-cover"
         style={{ backgroundImage: `url(${bg5})` }}
       />
+<div
+  id="get-in-touch"   
+  className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain md:h-screen md:bg-cover"
+  style={{ backgroundImage: `url(${bg6})` }}
+/>
+
 
     </div>
   );
