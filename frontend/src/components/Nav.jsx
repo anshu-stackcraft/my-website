@@ -73,7 +73,7 @@ export default function Nav() {
             Projects
           </NavLink>
 
-          <NavLink to="/#get-in-touch" onClick={() => setOpen(false)} className="block text-white">
+          <NavLink to="/login" onClick={() => setOpen(false)} className="block text-white">
             Get in Touch
           </NavLink>
         </div>

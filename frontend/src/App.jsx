@@ -4,6 +4,7 @@ import Home from "./components/Homepage";
 import Login from "./components/Login";
 import GetInTouch from "./components/GetInTouch";
 import DesignSection from "./components/DesignSection";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/getintuch" element={<GetInTouch />} />
         <Route path="/design" element={<DesignSection />} />
+        <Route path="/register" element={<Register />} />
 
       </Routes>
     </>
