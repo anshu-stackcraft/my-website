@@ -13,8 +13,8 @@ export default function Nav() {
                 <div className="flex items-center justify-between px-6 py-4">
 
                     {/* Name / Logo */}
-                    <h1 className="text-xl font-bold text-white">
-                        Anshu
+                    <h1 className=" text-sm md:text-sm lg:text-xl font-bold text-white">
+                        Portfolio Website
                     </h1>
 
                     {/* Desktop Menu */}
@@ -59,26 +59,26 @@ export default function Nav() {
 
 
                 {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden absolute top-full left-0 w-full
+                {open && (
+                    <div className="md:hidden absolute top-full left-0 w-full
                         bg-black/90 backdrop-blur
                         px-6 py-6 space-y-4
                         z-[999]">
-          
-          <NavLink to="/" onClick={() => setOpen(false)} className="block text-white">
-            Home
-          </NavLink>
 
-          <NavLink to="/projects" onClick={() => setOpen(false)} className="block text-white">
-            Projects
-          </NavLink>
+                        <NavLink to="/" onClick={() => setOpen(false)} className="block text-white">
+                            Home
+                        </NavLink>
 
-          <NavLink to="/login" onClick={() => setOpen(false)} className="block text-white">
-            Get in Touch
-          </NavLink>
-        </div>
-      )}
-    </nav>
+                        <NavLink to="/projects" onClick={() => setOpen(false)} className="block text-white">
+                            Projects
+                        </NavLink>
+
+                        <NavLink to="/login" onClick={() => setOpen(false)} className="block text-white ">
+                            Get in Touch
+                        </NavLink>
+                    </div>
+                )}
+            </nav>
         </>
     );
 }

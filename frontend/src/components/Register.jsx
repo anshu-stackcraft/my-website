@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
     const [data, setData] = useState({
         username: "",
         email: "",
@@ -10,14 +13,20 @@ function Register() {
     });
 
     const submit = async () => {
+        setLoading(true);
         try {
             const res = await axios.post(
                 "http://127.0.0.1:8000/api/register/",
                 data
             );
-            alert("Registration Successful");
+
+            if (res.data.status === "success") {
+                navigate("/login");
+            }
         } catch (error) {
             alert("Registration Failed");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -29,7 +38,6 @@ function Register() {
                     Register
                 </h2>
 
-                {/* Username */}
                 <input
                     type="text"
                     placeholder="Username"
@@ -39,7 +47,6 @@ function Register() {
                     }
                 />
 
-                {/* Email */}
                 <input
                     type="email"
                     placeholder="Email"
@@ -49,7 +56,6 @@ function Register() {
                     }
                 />
 
-                {/* Password */}
                 <input
                     type="password"
                     placeholder="Password"
@@ -59,20 +65,23 @@ function Register() {
                     }
                 />
 
-                {/* Button */}
                 <button
                     onClick={submit}
-                    className="w-full py-3 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-600 active:scale-95 transition-all duration-200"
+                    disabled={loading}
+                    className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
+                        ${loading
+                            ? "bg-orange-400 cursor-not-allowed"
+                            : "bg-orange-500 hover:bg-orange-600 active:scale-95"}
+                    `}
                 >
-                    Register
+                    {loading ? "Registering..." : "Register"}
                 </button>
 
-                {/* Footer */}
                 <p className="text-sm text-center text-zinc-400 mt-5">
                     Already have an account?{" "}
                     <Link
                         to="/login"
-                        className="text-orange-500 cursor-pointer hover:underline"
+                        className="text-orange-500 hover:underline"
                     >
                         Login
                     </Link>

@@ -6,18 +6,23 @@ import bg3 from "../assets/dex.png";
 import bg4 from "../assets/berojgar.png";
 import bg5 from "../assets/shop.png";
 import bg6 from "../assets/phone.png"
+import pbg1 from "../assets/home.png"
 
 function App() {
-
+  
 
 
   return (
-    <div className="bg-black ">
+    <div className="bg-black">
 
       {/* Section 1 */}
-      <div
-        className="w-full aspect-[16/9] bg-center bg-no-repeat bg-contain md:h-screen md:bg-cover"
+      {/* <div
+        className="w-full  bg-center bg-no-repeat md:hidded bg-contain h-screen bg-cover"
         style={{ backgroundImage: `url(${bgImage})` }}
+      /> */}
+      <div
+        className="w-full  bg-center bg-no-repeat lg:hidden bg-contain h-screen bg-cover"
+        style={{ backgroundImage: `url(${pbg1})` }}
       />
 
       {/* Section 2 */}

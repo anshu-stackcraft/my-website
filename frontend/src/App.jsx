@@ -5,19 +5,18 @@ import Login from "./components/Login";
 import GetInTouch from "./components/GetInTouch";
 import DesignSection from "./components/DesignSection";
 import Register from "./components/Register";
-
+import Projects from "./components/Projects";
 function App() {
   return (
     <>
       <Nav />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/getintuch" element={<GetInTouch />} />
         <Route path="/design" element={<DesignSection />} />
         <Route path="/register" element={<Register />} />
-
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </>
   );

@@ -9,6 +9,8 @@ const slider = [
 ];
 
 export default function DesignTheme() {
+    if (loading) return <p className="text-center mt-10">Loading...</p>;
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-6 md:p-14">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

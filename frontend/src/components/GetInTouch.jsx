@@ -21,7 +21,7 @@ function GetInTouch() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-4">
+    <div className="min-h-screen  flex items-center justify-center px-4 bg-gradient-to-br from-black via-zinc-900 to-black">
       <div className="w-full max-w-2xl bg-zinc-900 rounded-xl shadow-lg border border-orange-500 p-8">
         
         <h2 className="text-3xl font-bold text-orange-500 text-center mb-2">
