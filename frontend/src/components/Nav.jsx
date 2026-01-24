@@ -13,9 +13,12 @@ export default function Nav() {
                 <div className="flex items-center justify-between px-6 py-4">
 
                     {/* Name / Logo */}
-                    <h1 className=" text-sm md:text-sm lg:text-xl font-bold text-white">
+                    {/* <h1 className=" text-sm md:text-sm lg:text-xl font-bold text-white">
                         Portfolio Website
-                    </h1>
+                    </h1> */}
+                    <NavLink to="/" className=" text-sm md:text-sm lg:text-xl font-bold text-white">
+                            Portfolio Website
+                        </NavLink>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex gap-8 items-center">
@@ -38,7 +41,6 @@ export default function Nav() {
                             <span
                                 className="w-9 h-9 flex items-center justify-center rounded-full bg-orange-500
                text-white text-lg
-               group-hover:translate-y-[-3px]
                group-hover:rotate-45
                transition-all duration-300 ease-out"
                             >

@@ -16,10 +16,10 @@ function App() {
     <div className="bg-black">
 
       {/* Section 1 */}
-      {/* <div
-        className="w-full  bg-center bg-no-repeat md:hidded bg-contain h-screen bg-cover"
+      <div
+        className="w-full  bg-center bg-no-repeat  bg-contain h-screen bg-cover"
         style={{ backgroundImage: `url(${bgImage})` }}
-      /> */}
+      />
       <div
         className="w-full  bg-center bg-no-repeat lg:hidden bg-contain h-screen bg-cover"
         style={{ backgroundImage: `url(${pbg1})` }}

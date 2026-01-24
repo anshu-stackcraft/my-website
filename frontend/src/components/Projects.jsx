@@ -5,8 +5,8 @@ const projects = [
     id: 1,
     title: "Portfolio Website",
     desc: "Modern personal portfolio with smooth animations and responsive layout.",
-    tech: ["React", "Tailwind"],
-    type: "Frontend",
+    tech: ["React", "Tailwind", "Django", "API"],
+    type: "Full-Stack",
   },
   {
     id: 2,
@@ -15,34 +15,35 @@ const projects = [
     tech: ["React", "API", "Stripe"],
     type: "Full-Stack",
   },
-  {
+    {
     id: 3,
+    title: "School Management App",
+    desc: "Manage students, teachers, fees, attendance & results.",
+    tech: ["React", "Django", "PostgreSQL" , "API"],
+    type: "Full-Stack",
+  },
+  {
+    id: 4,
     title: "Auth System",
     desc: "Secure login & register system using JWT authentication.",
     tech: ["Django", "React", "JWT"],
     type: "Backend",
   },
   {
-    id: 4,
+    id: 5,
     title: "Landing Page",
     desc: "High-conversion landing page with modern UI and animations.",
     tech: ["HTML", "Tailwind", "JS"],
     type: "Frontend",
   },
   {
-    id: 5,
+    id: 6,
     title: "Admin Dashboard",
     desc: "Clean dashboard UI with cards, tables and analytics.",
     tech: ["React", "Tailwind"],
     type: "Frontend",
   },
-  {
-    id: 6,
-    title: "School Management App",
-    desc: "Manage students, teachers, fees, attendance & results.",
-    tech: ["React", "Django", "MySQL"],
-    type: "Full-Stack",
-  },
+
   {
     id: 7,
     title: "Blog Platform",
@@ -87,7 +88,7 @@ function Projects() {
           <div
             key={project.id}
             className="group relative bg-zinc-900/80 backdrop-blur border border-orange-500/20 rounded-2xl p-7 shadow-xl 
-                       hover:border-orange-500 hover:shadow-orange-500/20 transition-all duration-300"
+                       hover:border-orange-500 hover:shadow-orange-500/20 transition-all duration-100"
           >
             {/* Glow */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 

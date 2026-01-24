@@ -21,7 +21,7 @@ function Login() {
       } else {
         alert("Invalid username or password");
       }
-
+    
     } catch (error) {
       console.error(error);
       alert("Login Failed");
@@ -60,10 +60,10 @@ function Login() {
         <button
           onClick={submit}
           disabled={loading}
-          className={`w-full py-3 rounded-lg font-semibold
+          className={`w-full py-3 rounded-lg font-semibold transition-all duration-200
             ${loading
               ? "bg-orange-400 cursor-not-allowed"
-              : "bg-orange-500 hover:bg-orange-600"}`}
+              : "bg-orange-500 hover:bg-orange-600 active:scale-95"}`}
         >
           {loading ? "Login..." : "Login"}
         </button>
