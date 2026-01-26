@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
+    
 
     const baseLink = "text-white hover:text-orange-400 transition";
 
@@ -13,12 +14,10 @@ export default function Nav() {
                 <div className="flex items-center justify-between px-6 py-4">
 
                     {/* Name / Logo */}
-                    {/* <h1 className=" text-sm md:text-sm lg:text-xl font-bold text-white">
-                        Portfolio Website
-                    </h1> */}
+
                     <NavLink to="/" className=" text-sm md:text-sm lg:text-xl font-bold text-white">
-                            Portfolio Website
-                        </NavLink>
+                        Portfolio Website
+                    </NavLink>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex gap-8 items-center">
