@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
@@ -27,6 +28,10 @@ export default function Nav() {
                         <NavLink to="/projects" className={baseLink}>
                             Projects
                         </NavLink>
+                        <NavLink to="/about" className={baseLink}>
+                            About
+                        </NavLink>
+                        
                         <NavLink
                             to="/login"
                             className="group flex items-center gap-3 border border-white px-5 py-2 rounded-full 
@@ -72,6 +77,9 @@ export default function Nav() {
 
                         <NavLink to="/projects" onClick={() => setOpen(false)} className="block text-white">
                             Projects
+                        </NavLink>
+                        <NavLink to="/about" onClick={() => setOpen(false)} className="block text-white">
+                            About
                         </NavLink>
 
                         <NavLink to="/login" onClick={() => setOpen(false)} className="block text-white ">

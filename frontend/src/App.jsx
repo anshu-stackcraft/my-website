@@ -6,6 +6,12 @@ import GetInTouch from "./components/GetInTouch";
 import DesignSection from "./components/DesignSection";
 import Register from "./components/Register";
 import Projects from "./components/Projects";
+import Logout from "./components/Logout";
+import About from "./components/About";
+import Footer from "./components/Footer";
+
+
+
 function App() {
   return (
     <>
@@ -17,7 +23,11 @@ function App() {
         <Route path="/design" element={<DesignSection />} />
         <Route path="/register" element={<Register />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
+       <Footer />
     </>
   );
 }
