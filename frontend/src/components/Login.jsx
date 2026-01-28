@@ -17,7 +17,7 @@ function Login() {
       );
 
       if (res.data.status === "success") {
-        navigate("/"); // ✅ redirect works
+        navigate("/"); 
       } else {
         alert("Invalid username or password");
       }
@@ -41,7 +41,7 @@ function Login() {
 
         <input
           type="text"
-          placeholder="Username"
+          placeholder="email, username"
           className="w-full mb-4 px-4 py-3 rounded-lg bg-black text-white border border-zinc-700"
           onChange={(e) =>
             setData({ ...data, username: e.target.value })
@@ -50,7 +50,7 @@ function Login() {
 
         <input
           type="password"
-          placeholder="Password"
+          placeholder="password"
           className="w-full mb-6 px-4 py-3 rounded-lg bg-black text-white border border-zinc-700"
           onChange={(e) =>
             setData({ ...data, password: e.target.value })

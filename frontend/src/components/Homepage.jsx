@@ -6,7 +6,7 @@ import bg3 from "../assets/dex.png";
 import bg4 from "../assets/berojgar.png";
 import bg5 from "../assets/shop.png";
 import bg6 from "../assets/phone.png"
-import pbg1 from "../assets/home.png"
+import pbg1 from "../assets/mep.png"
 
 function App() {
   
@@ -31,10 +31,10 @@ function App() {
         style={{ backgroundImage: `url(${bg2})` }}>
 
           
-        <div className="text-center px-30 p-14 "> <p className=" text-md md:text-2xl lg:text-4xl text-white mt-15 ">Thoughtfully crafted, story-driven creative 
-          solution that <i>blend</i> design, film and strategy to build meaningful brands. </p> </div>
+        <div className="text-center  px-30 p-14 "> <p className=" text-sm md:text-sm  lg:text-4xl text-white mt-15 ">
+          Thoughtfully crafted, story-driven creative solution that <i>blend</i> design, film and strategy to build meaningful brands. </p> </div>
 
-        {/* <div className=" text-center flex mt-[25vh]  ">
+        {/* <div className="  text-center flex mt-[25vh]  ">
           <div className="text-center p-14 " ><h4 className="text-3xl text-white ">Overview</h4> <p className="text-sm text-white">
             A personal portfolio website project designed 
             to present my creative identity, showcase 

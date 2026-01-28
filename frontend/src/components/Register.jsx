@@ -56,15 +56,21 @@ function Register() {
                     }
                 />
 
+             
                 <input
+                    type="repassword"
+                    placeholder="Password"
+                    className="w-full px-4 py-3 mb-6 rounded-lg bg-black text-white border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+                   <input
                     type="password"
                     placeholder="Password"
-                    className="w-full mb-6 px-4 py-3 rounded-lg bg-black text-white border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full  px-4 py-3 rounded-lg bg-black text-white border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     onChange={(e) =>
                         setData({ ...data, password: e.target.value })
                     }
                 />
-
+                <p className="text-sm text-center text-zinc-400">This is password note Strong </p>
                 <button
                     onClick={submit}
                     disabled={loading}

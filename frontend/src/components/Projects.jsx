@@ -131,7 +131,7 @@ function Projects() {
               </button>
 
               <button className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg 
-                                 border border-zinc-600 hover:border-orange-500 transition">
+                                 border border-zinc-600 hover:border-orange-500">
                 <FaGithub size={16} />
                  code
               </button>

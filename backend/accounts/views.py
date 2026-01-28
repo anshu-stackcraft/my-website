@@ -19,11 +19,11 @@ def register(request):
             "msg": "User Registered Successfully",
             "status": "success"
         })
-
+    
     return Response(serializer.errors)
 
 @api_view(['POST'])
-def login(request):
+def login(request):        
     login_input = (
         request.data.get("login") or
         request.data.get("username") or
@@ -76,6 +76,3 @@ def logout(request):
         "msg": "Logout Successful",
         "status": "success"
     })
-
-
-
