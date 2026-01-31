@@ -4,34 +4,59 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
-    
 
-    const baseLink = "text-white hover:text-orange-400 transition";
+
+    const baseLink = "relative text-sm text-white after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-orange-500 after:scale-x-0 hover:after:scale-x-100 after:origin-center after:transition-transform duration-500 text-orange-500 ";
+
+    const activeLink = "text-orange-500 after:scale-x-100";
 
     return (
         <>
             {/* TRANSPARENT NAV */}
-            <nav className="fixed top-0 left-0 w-full z-50 bg-transparent">
+            <nav className=" fixed top-0 left-0 w-full z-50 bg-transparent">
                 <div className="flex items-center justify-between px-6 py-4">
 
                     {/* Name / Logo */}
 
-                    <NavLink to="/" className=" text-sm md:text-sm lg:text-xl font-bold text-white">
-                        Portfolio Website
+                    <NavLink
+                        to="/"
+                        className="relative text-sm lg:text-xl font-bold text-white
+             after:content-[''] after:absolute after:left-0 after:-bottom-1
+             after:w-full after:h-[2px] after:bg-orange-500
+             after:scale-x-0 hover:after:scale-x-100
+             after:origin-left after:transition-transform duration-500"
+                    >
+                        Portfolio <span className="text-orange-500">Website</span>
                     </NavLink>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex gap-8 items-center">
-                        <NavLink to="/" className={baseLink}>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? `${baseLink} ${activeLink}` : baseLink
+                            }
+                        >
                             Home
                         </NavLink>
-                        <NavLink to="/projects" className={baseLink}>
+                          <NavLink
+                            to="/projects"
+                            className={({ isActive }) =>
+                                isActive ? `${baseLink} ${activeLink}` : baseLink
+                            }
+                        >
                             Projects
                         </NavLink>
-                        <NavLink to="/about" className={baseLink}>
+                          <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
+                                isActive ? `${baseLink} ${activeLink}` : baseLink
+                            }
+                        >
                             About
                         </NavLink>
-                        
+
+
                         <NavLink
                             to="/login"
                             className="group flex items-center gap-3 border border-white px-5 py-2 rounded-full 

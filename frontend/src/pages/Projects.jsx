@@ -1,4 +1,5 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useEffect } from "react";
 
 const projects = [
   {
@@ -15,11 +16,11 @@ const projects = [
     tech: ["React", "API", "Stripe"],
     type: "Full-Stack",
   },
-    {
+  {
     id: 3,
     title: "School Management App",
     desc: "Manage students, teachers, fees, attendance & results.",
-    tech: ["React", "Django", "PostgreSQL" , "API"],
+    tech: ["React", "Django", "PostgreSQL", "API"],
     type: "Full-Stack",
   },
   {
@@ -43,7 +44,6 @@ const projects = [
     tech: ["React", "Tailwind"],
     type: "Frontend",
   },
-
   {
     id: 7,
     title: "Blog Platform",
@@ -58,7 +58,6 @@ const projects = [
     tech: ["React", "API"],
     type: "Frontend",
   },
-
   {
     id: 9,
     title: "Task Management System",
@@ -69,26 +68,49 @@ const projects = [
 ];
 
 function Projects() {
+
+  // scroll reveal animation
+  useEffect(() => {
+    const cards = document.querySelectorAll(".reveal-card");
+    const onScroll = () => {
+      cards.forEach((card) => {
+        const top = card.getBoundingClientRect().top;
+        if (top < window.innerHeight - 80) {
+          card.classList.add("opacity-100", "translate-y-0");
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black px-6 py-14 text-white">
-      
-      {/* Heading */}
-      <div className="text-center mb-14">
-        <h1 className="text-4xl md:text-5xl font-bold text-orange-500">
+    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black px-6 py-16 text-white">
+
+      {/* ===== Heading ===== */}
+      <div className="text-center ">
+        <h1 className="text-4xl md:text-5xl mt-10 font-extrabold text-orange-500">
           My Projects
         </h1>
-        <p className="text-zinc-400 mt-3 text-sm md:text-sm lg:text:lg">
-          Frontend, Backend & Full-Stack Practice Projects
+        <p className="text-zinc-400 mt-4 text-sm md:text-lg">
+          Frontend • Backend • Full-Stack Development Work
         </p>
       </div>
 
-      {/* Projects Grid */}
+      {/* ===== Projects Grid ===== */}
       <div className="max-w-7xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <div
             key={project.id}
-            className="group relative bg-zinc-900/80 backdrop-blur border border-orange-500/20 rounded-2xl p-7 shadow-xl 
-                       hover:border-orange-500 hover:shadow-orange-500/20 transition-all duration-100"
+            style={{ transitionDelay: `${index * 100}ms` }}
+            className="
+              reveal-card opacity-0 translate-y-10 transition-all duration-700
+              group relative bg-zinc-900/80 backdrop-blur
+              border border-orange-500/20 rounded-2xl p-7
+               hover:border-orange-500
+              hover:shadow-2xl hover:shadow-orange-500/20
+            "
           >
             {/* Glow */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 
@@ -125,15 +147,15 @@ function Projects() {
             {/* Buttons */}
             <div className="flex gap-4 relative z-10">
               <button className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg 
-                                 bg-orange-500 hover:bg-orange-600 transition">
+                                 bg-orange-500 text-black hover:bg-orange-600 transition">
                 <FaExternalLinkAlt size={14} />
                 Live
               </button>
 
               <button className="flex items-center gap-2 text-sm px-4 py-2 rounded-lg 
-                                 border border-zinc-600 hover:border-orange-500">
+                                 border border-zinc-600 hover:border-orange-500 transition">
                 <FaGithub size={16} />
-                 code
+                Code
               </button>
             </div>
           </div>
