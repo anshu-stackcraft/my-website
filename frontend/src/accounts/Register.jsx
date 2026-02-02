@@ -8,6 +8,7 @@ function Register() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -18,12 +19,7 @@ function Register() {
   const submit = async () => {
     setError("");
 
-    if (
-      !data.username ||
-      !data.email ||
-      !data.password ||
-      !data.confirmPassword
-    ) {
+    if (!data.username || !data.email || !data.password || !data.confirmPassword) {
       setError("All fields are required");
       return;
     }
@@ -34,22 +30,28 @@ function Register() {
     }
 
     setLoading(true);
-    try {
-      const res = await register(data);
 
-      // ✅ register success → login page
-      if (res) {
+    try {
+      const res = await register({
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      });
+
+      if (res?.status === "success") {
         navigate("/login");
+      } else {
+        setError("Registration failed");
       }
     } catch (err) {
-      setError("Registration failed");
+      setError(err?.response?.data?.msg || "Registration failed");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-black px-4 via-zinc-900 to-black">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-linear-to-br from-black via-zinc-900 to-black">
       <div className="w-full max-w-sm bg-zinc-900 border border-orange-500/40 rounded-2xl shadow-xl p-6">
         <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">
           Register
@@ -90,11 +92,11 @@ function Register() {
         <button
           onClick={submit}
           disabled={loading}
-          className={`w-full py-3 rounded-lg font-semibold
+          className={`w-full py-3 rounded-lg font-semibold transition-all
             ${
               loading
                 ? "bg-orange-400 cursor-not-allowed"
-                : "bg-orange-500 hover:bg-orange-600"
+                : "bg-orange-500 hover:bg-orange-600 active:scale-95"
             }`}
         >
           {loading ? "Registering..." : "Register"}

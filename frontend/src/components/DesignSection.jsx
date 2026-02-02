@@ -9,14 +9,13 @@ const slider = [
 ];
 
 export default function DesignTheme() {
-    if (loading) return <p className="text-center mt-10">Loading...</p>;
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-6 md:p-14">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* LEFT BIG CARD */}
-        <div className="bg-[#141414] rounded-[32px] p-6 shadow-2xl">
+        <div className="bg-[#141414] rounded-4xl p-6 shadow-2xl">
           <img
             src="/laptop.png"
             className="rounded-2xl w-full"
@@ -25,7 +24,7 @@ export default function DesignTheme() {
         </div>
 
         {/* QUOTE CARD */}
-        <div className="rounded-[32px] bg-gradient-to-r from-[#ff5f1f] to-[#ff8a00] flex items-center justify-center p-10 shadow-xl">
+        <div className="rounded-4xl bg-linear-to-r from-[#ff5f1f] to-[#ff8a00] flex items-center justify-center p-10 shadow-xl">
           <h2 className="text-white text-xl md:text-3xl font-medium">
             A great designer never follows the trend.
           </h2>
@@ -45,7 +44,7 @@ export default function DesignTheme() {
         </div>
 
         {/* SLIDER CARD */}
-        <div className="md:col-span-2 bg-[#141414] rounded-[32px] p-8 shadow-2xl overflow-hidden">
+        <div className="md:col-span-2 bg-[#141414] rounded-4xl p-8 shadow-2xl overflow-hidden">
           <h3 className="text-[#ff7a2f] text-lg mb-6">
             Behind the Designs
           </h3>
@@ -63,7 +62,7 @@ export default function DesignTheme() {
             {slider.map((img, i) => (
               <div
                 key={i}
-                className="min-w-[210px] md:min-w-[260px] h-[300px] rounded-[22px] overflow-hidden bg-black"
+                className="min-w-52.5 md:min-w-65 h-75 rounded-[22px] overflow-hidden bg-black"
               >
                 <img
                   src={img}

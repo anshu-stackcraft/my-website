@@ -5,7 +5,7 @@ function About() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black flex items-center justify-center px-4">
+    <div className="min-h-screen bg-linear-to-br from-black via-zinc-900 to-black flex items-center justify-center px-4">
       <div className="max-w-3xl w-full bg-zinc-900 border border-orange-500/40 rounded-2xl shadow-xl p-8">
 
         {/* Header */}

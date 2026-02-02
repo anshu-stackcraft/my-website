@@ -22,7 +22,7 @@ export default function Nav() {
                         to="/"
                         className="relative text-sm lg:text-xl font-bold text-white
              after:content-[''] after:absolute after:left-0 after:-bottom-1
-             after:w-full after:h-[2px] after:bg-orange-500
+             after:w-full after:h-0.5 after:bg-orange-500
              after:scale-x-0 hover:after:scale-x-100
              after:origin-left after:transition-transform duration-500"
                     >
@@ -71,7 +71,7 @@ export default function Nav() {
                                 className="w-9 h-9 flex items-center justify-center rounded-full bg-orange-500
                text-white text-lg
                group-hover:rotate-45
-               transition-all duration-300 ease-out"
+               transition-all duration-300 ease-out active:scale-95"
                             >
                                 ↑
                             </span>

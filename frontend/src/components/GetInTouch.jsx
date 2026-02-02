@@ -21,7 +21,7 @@ function GetInTouch() {
   };
 
   return (
-    <div className="min-h-screen  flex items-center justify-center px-4 bg-gradient-to-br from-black via-zinc-900 to-black">
+    <div className="min-h-screen  flex items-center justify-center px-4 bg-linear-to-br from-black via-zinc-900 to-black">
       <div className="w-full max-w-2xl bg-zinc-900 rounded-xl shadow-lg border border-orange-500 p-8">
         
         <h2 className="text-3xl font-bold text-orange-500 text-center mb-2">
@@ -70,7 +70,7 @@ function GetInTouch() {
 
           <button
             type="submit"
-            className="w-full bg-orange-500 text-black font-semibold py-3 rounded hover:bg-orange-600 transition"
+            className="w-full bg-orange-500 text-black font-semibold py-3 rounded hover:bg-orange-600 transition active:scale-95 hover:scale-105"
           >
             Send Message
           </button>

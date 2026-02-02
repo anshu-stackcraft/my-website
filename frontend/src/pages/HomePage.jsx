@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-
+import { IoRocket } from "react-icons/io5";
 import heroImg from "../assets/anshulaptop.png";
 import dexImg from "../assets/dex.png";
 import shopImg from "../assets/shop.png";
@@ -10,7 +10,8 @@ import webImg from "../assets/myweb.png";
 
 const HomePage = () => {
 
-  // Scroll reveal animation
+
+
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
     const onScroll = () => {
@@ -35,7 +36,7 @@ const HomePage = () => {
   min-h-screen flex flex-col-reverse md:flex-row
   items-center justify-center md:justify-between
   px-5 md:px-24
-  bg-gradient-to-br from-black via-zinc-900 to-black
+  bg-linear-to-br from-black via-zinc-900 to-black
 ">
 
   {/* ========= TEXT ========= */}
@@ -78,7 +79,7 @@ const HomePage = () => {
   src={heroImg}
   alt="Developer"
   className="
-    w-[300px] sm:w-[320px] md:w-[500px]
+    w-80 sm:w-[320px] md:w-125
     -translate-y-12 sm:-translate-y-16 md:translate-y-0
     animate-float
     rounded-xl
@@ -148,7 +149,7 @@ const HomePage = () => {
       </section>
 
       {/* ================= FUTURE ================= */}
-      <section className="py-28 px-6 md:px-24 bg-gradient-to-r from-zinc-900 to-black">
+      <section className="py-28 px-6 md:px-24 bg-linear-to-r from-zinc-900 to-black">
         <div className="max-w-4xl mx-auto text-center reveal opacity-0 translate-y-10 transition-all duration-700">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Building for the <span className="text-orange-500">Future</span>
@@ -166,10 +167,10 @@ const HomePage = () => {
           Let’s Build Something Great
         </h2>
         <Link
-          to="/about"
-          className="inline-block bg-black text-orange-500 active:scale-95 px-10 py-4 rounded-lg text-lg font-semibold hover:bg-zinc-900 transition"
+          to="/hireme"
+          className="inline-block bg-black text-orange-500 px-10 py-4 rounded-lg text-lg font-semibold hover:bg-zinc-900 transition active:scale-95 hover:scale-105"
         >
-          Hire Me 🚀
+          Hire Me <IoRocket className="inline ml-2" />
         </Link>
       </section>
      

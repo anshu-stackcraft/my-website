@@ -8,10 +8,10 @@ function Login() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-  });
+const [data, setData] = useState({
+  login: "",      // ✅ username → login
+  password: "",
+});
 
   const submit = async () => {
     setError("");
@@ -22,24 +22,19 @@ function Login() {
     }
 
     setLoading(true);
-    try {
-      const res = await login(data);
 
-      // ✅ token mila = login success
-      if (res.token) {
-        navigate("/");
-      } else {
-        setError("Invalid username or password");
-      }
+    try {
+      await login(data);        // ✅ session cookie set
+      navigate("/");            // ✅ ROUTE CHANGE (FIX)
     } catch (err) {
-      setError("Login failed");
+      setError("Invalid username or password");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black px-4 via-zinc-900 to-black">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-black via-zinc-900 to-black px-4">
       <div className="w-full max-w-sm bg-zinc-900 border border-orange-500/40 rounded-2xl shadow-xl p-6">
         <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">
           Login
