@@ -1,11 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class Register(models.Model):
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
 
     def __str__(self):
-        return self.username
-
- 
+        return self.user.username

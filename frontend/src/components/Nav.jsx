@@ -55,6 +55,16 @@ export default function Nav() {
                         >
                             About
                         </NavLink>
+                        
+                          <NavLink
+                            to="/profile"
+                            className={({ isActive }) =>
+                                isActive ? `${baseLink} ${activeLink}` : baseLink
+                            }
+                        >
+                            Profile
+                        </NavLink>
+
 
 
                         <NavLink
@@ -82,20 +92,19 @@ export default function Nav() {
                     {/* Mobile Button */}
                     <button
                         onClick={() => setOpen(!open)}
-                        className="md:hidden text-3xl text-white"
+                        className="md:hidden text-3xl text-white transition"
                     >
-                        ☰
+          {open ? "✕" : "☰"}
                     </button>
                 </div>
 
 
                 {/* MOBILE MENU */}
-                {open && (
-                    <div className="md:hidden absolute top-full left-0 w-full
-                        bg-black/90 backdrop-blur
-                        px-6 py-6 space-y-4
-                        z-[999]">
-
+                    <div
+        className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur
+        px-6 py-6 space-y-5 transform transition-all duration-500
+        ${open ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0 pointer-events-none"}`}
+      >
                         <NavLink to="/" onClick={() => setOpen(false)} className="block text-white">
                             Home
                         </NavLink>
@@ -111,7 +120,7 @@ export default function Nav() {
                             Get in Touch
                         </NavLink>
                     </div>
-                )}
+                
             </nav>
         </>
     );

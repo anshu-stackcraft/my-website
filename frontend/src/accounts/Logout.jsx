@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LogOut } from "lucide-react";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../context/AuthContext";
+
 
 function Logout() {
   const navigate = useNavigate();

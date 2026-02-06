@@ -1,73 +1,54 @@
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import authenticate, login as django_login, logout as django_logout
-from django.contrib.auth import get_user_model
-from django.db.models import Q
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth.models import User
 
-from .serializers import RegisterSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
-User = get_user_model()
+from .models import Profile
+from .serializers import RegisterSerializer, ProfileSerializer
+from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 # =========================
 # REGISTER
 # =========================
-@api_view(['POST'])
+@api_view(["POST"])
 def register(request):
     serializer = RegisterSerializer(data=request.data)
-
     if serializer.is_valid():
         serializer.save()
-        return Response({
-            "msg": "User Registered Successfully",
-            "status": "success"
-        })
-
+        return Response({"msg": "Registered successfully"}, status=201)
     return Response(serializer.errors, status=400)
 
 
 # =========================
-# LOGIN (SESSION BASED)
+# LOGIN (JWT)
 # =========================
-@api_view(['POST'])
+@api_view(["POST"])
 def login(request):
-    login_input = (
-        request.data.get("login")
-        or request.data.get("username")
-        or request.data.get("email")
-    )
+    login_input = request.data.get("login")
     password = request.data.get("password")
 
-    if not login_input or not password:
-        return Response({"msg": "Username/email and password required"}, status=400)
-
-    user = authenticate(
-        request,
-        username=login_input,
-        password=password
-    )
-
-    # 👇 email login support
-    if user is None:
+    try:
+        user = User.objects.get(username=login_input)
+    except User.DoesNotExist:
         try:
-            user_obj = User.objects.get(email=login_input)
-            user = authenticate(
-                request,
-                username=user_obj.username,
-                password=password
-            )
+            user = User.objects.get(email=login_input)
         except User.DoesNotExist:
-            user = None
+            return Response({"msg": "Invalid credentials"}, status=401)
 
-    if user is None:
+    if not user.check_password(password):
         return Response({"msg": "Invalid credentials"}, status=401)
 
-    # 🔥 THIS LINE CREATES SESSION
-    django_login(request, user)
+    refresh = RefreshToken.for_user(user)
 
     return Response({
-        "msg": "Login successful",
+        "access": str(refresh.access_token),
+        "refresh": str(refresh),
         "user": {
             "id": user.id,
             "username": user.username,
@@ -77,24 +58,48 @@ def login(request):
 
 
 # =========================
-# LOGOUT
-# =========================
-@api_view(['POST'])
-def logout(request):
-    django_logout(request)
-    return Response({"msg": "Logout successful"})
-
-
-# =========================
 # CURRENT USER
 # =========================
-@api_view(['GET'])
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def me(request):
     return Response({
-        "user": {
-            "id": request.user.id,
-            "username": request.user.username,
-            "email": request.user.email,
-        }
+        "id": request.user.id,
+        "username": request.user.username,
+        "email": request.user.email,
     })
+
+
+# =========================
+# PROFILE UPDATE
+# =========================
+class ProfileUpdateView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
+
+    def put(self, request):
+        profile, _ = Profile.objects.get_or_create(user=request.user)
+
+        serializer = ProfileSerializer(
+            profile, data=request.data, partial=True
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors, status=400)
+
+
+# =========================
+# PROFILE DETAIL
+# =========================
+class ProfileDetailView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        profile, _ = Profile.objects.get_or_create(user=request.user)
+        serializer = ProfileSerializer(profile)
+        return Response(serializer.data)

@@ -1,23 +1,13 @@
 from pathlib import Path
+from datetime import timedelta
 
-# =========================
-# BASE
-# =========================
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-this-in-production'
-
+SECRET_KEY = "django-insecure-change-this-in-production"
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-
-# =========================
-# APPS
-# =========================
 INSTALLED_APPS = [
     "corsheaders",
 
@@ -32,10 +22,6 @@ INSTALLED_APPS = [
     "accounts",
 ]
 
-
-# =========================
-# MIDDLEWARE
-# =========================
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 
@@ -50,10 +36,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
-# =========================
-# URL / WSGI
-# =========================
 ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
@@ -73,10 +55,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
-
-# =========================
-# DATABASE
-# =========================
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -84,72 +62,31 @@ DATABASES = {
     }
 }
 
-
-# =========================
-# PASSWORD VALIDATION
-# =========================
-AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
-
-
-# =========================
-# INTERNATIONALIZATION
-# =========================
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "Asia/Kolkata"
 USE_I18N = True
 USE_TZ = True
 
-
-# =========================
-# STATIC FILES
-# =========================
 STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
-# =========================
-# AUTH / SESSION
-# =========================
-AUTH_USER_MODEL = "auth.User"
-
-SESSION_ENGINE = "django.contrib.sessions.backends.db"
-
-SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SECURE = False        # DEV ONLY
-SESSION_COOKIE_SAMESITE = "Lax"
-
-CSRF_COOKIE_HTTPONLY = False
-CSRF_COOKIE_SECURE = False           # DEV ONLY
-CSRF_COOKIE_SAMESITE = "Lax"
-
-
-# =========================
-# CORS / CSRF (REACT)
-# =========================
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
-]
-
-
-# =========================
-# DRF (SESSION AUTH ONLY)
-# =========================
+# ================= JWT =================
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
     ],
 }
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
+
+# ================= CORS =================
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
